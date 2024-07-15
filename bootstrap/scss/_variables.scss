@@ -1,0 +1,11 @@
+$primary-color: #5eb562;
+
+$focus-ring-opacity: 0.5;
+$focus-ring-color: $primary-color;
+$focus-ring-blur: 5px;
+$focus-ring-box-shadow: 0 0 10px rgba($primary-color, $focus-ring-opacity);
+
+$input-btn-focus-color-opacity: $focus-ring-opacity;
+$input-btn-focus-color: $focus-ring-color;
+$input-btn-focus-blur: $focus-ring-blur;
+$input-btn-focus-box-shadow: $focus-ring-box-shadow;
