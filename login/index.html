@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../asset/fav.png" type="image/x-icon" />
+    <title>Assignment 05</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../loader/style.css" />
+  </head>
+  <body>
+    <div class="overlay" id="overlay">
+      <div class="container" tabindex="0" id="loader">
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+      </div>
+    </div>
+
+    <nav class="navbar bg-body-tertiary" id="navbar">
+      <div class="container-fluid">
+        <img src="../asset/logo.png" alt="" onclick="redirect()" />
+      </div>
+    </nav>
+
+    <section class="login-section" id="loginSection">
+      <div class="card" style="width: 18rem">
+        <div class="card-head">
+          <h5 class="head-title">Login</h5>
+        </div>
+        <div class="card-img">
+          <img src="../asset/img_1.png" class="card-img-top" alt="..." />
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-name mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id=""
+                placeholder="Name"
+                required
+              />
+            </div>
+            <div class="submit-btn">
+              <button type="submit" class="sub-btn">
+                <span class="sub-text">Submit</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script src="./script.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
