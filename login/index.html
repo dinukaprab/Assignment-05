@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="../asset/fav.png" type="image/x-icon" />
     <title>Assignment 05</title>
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="../loader/style.css" />
+    <script
+      src="https://kit.fontawesome.com/0ce72344ee.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <div class="overlay" id="overlay">
+    <!-- <div class="overlay" id="overlay">
       <div class="container" tabindex="0" id="loader">
         <div class="slice"></div>
         <div class="slice"></div>
@@ -20,7 +24,7 @@
         <div class="slice"></div>
         <div class="slice"></div>
       </div>
-    </div>
+    </div> -->
 
     <nav class="navbar bg-body-tertiary" id="navbar">
       <div class="container-fluid">
@@ -30,34 +34,49 @@
 
     <section class="login-section" id="loginSection">
       <div class="card" style="width: 18rem">
-        <div class="card-head">
-          <h5 class="head-title">Login</h5>
+        <div class="card-container" id="cardContainer">
+          <div class="card-head">
+            <h5 class="head-title">Login</h5>
+          </div>
+          <div class="card-img">
+            <img src="../asset/img_1.png" class="card-img-top" alt="..." />
+          </div>
+          <div class="card-body">
+            <form id="nameForm">
+              <div class="form-name mb-3">
+                <input
+                  type="search"
+                  class="form-control"
+                  id="nameInput"
+                  placeholder="Name"
+                  title="Only letters are allowed"
+                />
+              </div>
+              <div class="submit-btn">
+                <div class="sub-btn" onclick="submitForm(this)">
+                  <span class="sub-text">Submit</span>
+                  <span class="sub-loader">
+                    <div class="sub-container"><div class="dot" /></div>
+                  </span>
+                  </span>
+                </div>
+              </div>              
+            </form>
+          </div>
         </div>
-        <div class="card-img">
-          <img src="../asset/img_1.png" class="card-img-top" alt="..." />
-        </div>
-        <div class="card-body">
-          <form>
-            <div class="form-name mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id=""
-                placeholder="Name"
-                required
-              />
-            </div>
-            <div class="submit-btn">
-              <button type="submit" class="sub-btn">
-                <span class="sub-text">Submit</span>
-              </button>
-            </div>
-          </form>
+        <div class="successfully" id="successfully">
+          <div class="user-plus-icon-group">
+            <i class="fa-solid fa-check user-plus-icon"></i>
+          </div>
+          <div class="success-text">
+            <p>Submit successfully...!</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <script src="./script.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../script.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
