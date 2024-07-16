@@ -44,7 +44,6 @@
 .countdown {
   margin: 15px;
   float: inline-end;
-  /* display: none; */
   filter: blur(3px);
   opacity: 0;
   transform: translateX(20px);

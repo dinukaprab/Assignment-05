@@ -69,6 +69,11 @@ const questions = [
   },
 ];
 
+const TIMER_DURATION = 5;
+let currentQuestionIndex = 0;
+let correctAnswersCount = 0;
+let timer;
+
 function Next() {
   const nextButton = document.querySelector(".next-btn");
   const nextText = document.querySelector(".next-text");
@@ -80,13 +85,9 @@ function Next() {
   setTimeout(() => {
     nextText.style.opacity = 1;
     nextLoader.style.display = "none";
-    nextButton.addEventListener("click", showNextQuestion());
+    nextButton.addEventListener("click", buttonLoader());
   }, 1000);
 }
-
-const TIMER_DURATION = 5;
-let currentQuestionIndex = 0;
-let timer;
 
 function startCountdown() {
   let timeLeft = TIMER_DURATION;
@@ -98,16 +99,14 @@ function startCountdown() {
 
     if (timeLeft < 0) {
       clearInterval(timer);
-      showNextQuestion();
+      buttonLoader();
     }
   }, 1000);
 }
 
-function showNextQuestion() {
+function buttonLoader() {
   const nextText = document.querySelector(".next-text");
   const nextLoader = document.querySelector(".next-loader");
-  const overlay = document.getElementById("overlay");
-  const loader = document.getElementById("loader");
 
   nextText.style.opacity = 0;
   nextLoader.style.display = "block";
@@ -115,51 +114,84 @@ function showNextQuestion() {
   setTimeout(() => {
     nextText.style.opacity = 1;
     nextLoader.style.display = "none";
-
-    currentQuestionIndex++;
-    
-    if (currentQuestionIndex < 5 ) {
-      loadQuestion();
-      startCountdown();
-      clearInterval(timer);
-  
-    } else {
-      overlay.style.display = "block";
-      loader.style.display = "block";
-
-      setTimeout(() => {
-        overlay.style.display = "none";
-        loader.style.display = "none";
-        document.getElementById("quizSection").style.display = "none";
-        document.querySelector(".countdown").style.display = "none";
-        document.querySelector(".performance").style.display = "block";
-      }, 1500);
-    }
+    showNext();
   }, 1000);
+}
+
+function showNext() {
+  const selectedOption = document.querySelector(".option input:checked");
+
+  if (
+    selectedOption &&
+    parseInt(selectedOption.value) ===
+      questions[currentQuestionIndex].correctAnswer
+  ) {
+    correctAnswersCount++;
+  }
+
+  currentQuestionIndex++;
+
+  if (currentQuestionIndex < questions.length) {
+    loadQuestion();
+  } else {
+    showLoader();
+  }
+}
+
+function showLoader() {
+  const overlay = document.getElementById("overlay");
+  const loader = document.getElementById("loader");
+
+  overlay.style.display = "block";
+  loader.style.display = "block";
+
+  setTimeout(() => {
+    overlay.style.display = "none";
+    loader.style.display = "none";
+    document.getElementById("quizSection").style.display = "none";
+    document.querySelector(".countdown").style.display = "none";
+    document.querySelector(".performance").style.display = "block";
+    displayPerformance();
+  }, 1500);
+}
+
+function displayPerformance() {
+  const performanceElement = document.getElementById("result");
+  const totalQuestions = questions.length;
+  const percentage = (correctAnswersCount / totalQuestions) * 100;
+  performanceElement.textContent = `${percentage}%`;
 }
 
 function loadQuestion() {
   const question = questions[currentQuestionIndex];
   const questionElement = document.querySelector(".question");
-  const optionsElements = document.querySelectorAll(".option label");
+  const options = document.querySelectorAll(".option label");
+
+  const currentQuestion = questions[currentQuestionIndex];
+  questionElement.textContent = currentQuestion.question;
+
+  options.forEach((option, index) => {
+    option.textContent = currentQuestion.options[index];
+    option.previousElementSibling.value = index;
+    option.previousElementSibling.checked = false;
+  });
 
   document.querySelector(".question-count h2").textContent = `Question ${
     currentQuestionIndex + 1
-  }/5`;
+  }/${questions.length}`;
 
   questionElement.textContent = `${currentQuestionIndex + 1}. ${
     question.question
   }`;
 
-  optionsElements.forEach((label, index) => {
-    label.textContent = question.options[index];
-  });
-
+  const selectedOption = document.querySelector(".option.selected");
+  if (selectedOption) {
+    selectedOption.classList.remove("selected");
+  }
   document
-  .querySelectorAll(".option input")
-  .forEach((input) => (input.checked = false));
-  // document.querySelector(".option.selected").classList.remove("selected");
-  
+    .querySelectorAll(".option input")
+    .forEach((input) => (input.checked = false));
+
   clearInterval(timer);
   startCountdown();
 }
