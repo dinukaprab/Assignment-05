@@ -259,15 +259,6 @@ input[type="search"]:focus {
   }
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes user-plus-icon {
   0% {
     transform: rotateY(100deg);

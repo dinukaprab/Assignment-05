@@ -1,3 +1,22 @@
+window.addEventListener("load", () => {
+  const overlay = document.getElementById("overlay");
+  const loader = document.getElementById("loader");
+  const loginSection = document.getElementById("loginSection");
+
+  if (loader) {
+    loader.style.display = "block";
+    overlay.style.display = "block";
+
+    loginSection.style.display = "none";
+
+    setTimeout(() => {
+      loader.style.display = "none";
+      overlay.style.display = "none";
+      loginSection.style.display = "block";
+    }, 1500);
+  }
+});
+
 function validateInput() {
   const nameInput = document.getElementById("nameInput");
   const errorMessage = document.getElementById("errorMessage");

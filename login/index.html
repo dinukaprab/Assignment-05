@@ -5,15 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="../asset/fav.png" type="image/x-icon" />
     <title>Assignment 05</title>
-    <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../loader/style.css">
     <script
       src="https://kit.fontawesome.com/0ce72344ee.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
+    <div class="overlay" id="overlay">
+      <div class="container" tabindex="0" id="loader">
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+      </div>
+    </div>
+
     <nav class="navbar bg-body-tertiary" id="navbar">
       <div class="container-fluid">
         <img src="../asset/logo.png" alt="" onclick="redirect()" />
