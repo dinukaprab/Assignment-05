@@ -25,7 +25,11 @@ if (window.location.href.endsWith("/index.html")) {
   history.replaceState({}, document.title, newUrl);
 }
 
-document.querySelectorAll(".sub-btn").forEach((button) => {
+function redirect() {
+  window.location.href = "/index.html";
+}
+
+document.querySelectorAll(".sub-btn , .next-btn").forEach((button) => {
   button.addEventListener("mouseenter", function (e) {
     const rect = button.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -35,34 +39,3 @@ document.querySelectorAll(".sub-btn").forEach((button) => {
     button.style.setProperty("--y", `${y}px`);
   });
 });
-
-function submitForm(button) {
-  const submitText = button.querySelector(".sub-text");
-  const loader = button.querySelector(".sub-loader");
-
-  submitText.style.opacity = 0;
-  loader.style.display = "block";
-
-  setTimeout(() => {
-    submitText.style.opacity = 1;
-    loader.style.display = "none";
-
-    submit();
-  }, 2000);
-}
-
-function submit() {
-  const cardContainer = document.getElementById("cardContainer");
-  const successfully = document.getElementById("successfully");
-
-  cardContainer.style.opacity = "0";
-
-  setTimeout(() => {
-    cardContainer.style.display = "none";
-    successfully.style.display = "block";
-
-    setTimeout(() => {
-      window.location.href = "./quiz/index.html";
-    }, 2000);
-  }, 1000);
-}
