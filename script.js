@@ -13,7 +13,7 @@ window.addEventListener("load", () => {
       loader.style.display = "none";
       overlay.style.display = "none";
       loginSection.style.display = "block";
-    }, 500);
+    }, 1500);
   }
 });
 
@@ -29,7 +29,7 @@ function redirect() {
   window.location.href = "/index.html";
 }
 
-document.querySelectorAll(".sub-btn , .next-btn").forEach((button) => {
+document.querySelectorAll(".sub-btn , .next-btn , .try-btn").forEach((button) => {
   button.addEventListener("mouseenter", function (e) {
     const rect = button.getBoundingClientRect();
     const x = e.clientX - rect.left;

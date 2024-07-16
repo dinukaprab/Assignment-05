@@ -8,24 +8,12 @@
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="../loader/style.css" />
     <script
       src="https://kit.fontawesome.com/0ce72344ee.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
-    <!-- <div class="overlay" id="overlay">
-      <div class="container" tabindex="0" id="loader">
-        <div class="slice"></div>
-        <div class="slice"></div>
-        <div class="slice"></div>
-        <div class="slice"></div>
-        <div class="slice"></div>
-        <div class="slice"></div>
-      </div>
-    </div> -->
-
     <nav class="navbar bg-body-tertiary" id="navbar">
       <div class="container-fluid">
         <img src="../asset/logo.png" alt="" onclick="redirect()" />
@@ -52,7 +40,9 @@
                   title="Only letters and spaces are allowed"
                   onkeyup="validateInput()"
                 />
-                <span id="errorMessage" class="error-message">Only letters are allowed.</span>
+                <span id="errorMessage" class="error-message"
+                  >Only letters are allowed.</span
+                >
               </div>
               <div class="submit-btn">
                 <div class="sub-btn" onclick="submitForm(this)">
@@ -63,17 +53,17 @@
                     </div>
                   </span>
                 </div>
-              </div>              
+              </div>
             </form>
           </div>
         </div>
-        <h2 id="nameDisplay" style="display: none;"></h2>
+        <h2 id="nameDisplay" style="display: none"></h2>
         <div class="successfully" id="successfully">
           <div class="user-plus-icon-group">
             <i class="fa-solid fa-check user-plus-icon"></i>
           </div>
           <div class="success-text">
-            <p>Submit successfully...!</p>
+            <p>Please wait a moment..!</p>
           </div>
         </div>
       </div>
