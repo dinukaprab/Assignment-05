@@ -233,6 +233,13 @@ input[type="search"]:focus {
   color: var(--primary-color);
 }
 
+.error-message {
+  position: absolute;
+  color: red;
+  display: none;
+  font-size: 0.9em;
+}
+
 @keyframes showContent {
   to {
     opacity: 1;

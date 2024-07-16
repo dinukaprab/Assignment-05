@@ -1,33 +1,55 @@
-let namesArray = [];
+function validateInput() {
+  const nameInput = document.getElementById("nameInput");
+  const errorMessage = document.getElementById("errorMessage");
+
+  if (/^[a-zA-Z\s]*$/.test(nameInput.value)) {
+    errorMessage.style.display = "none";
+  } else {
+    errorMessage.style.display = "block";
+  }
+}
 
 function submitForm(button) {
   const submitText = button.querySelector(".sub-text");
   const loader = button.querySelector(".sub-loader");
   const nameInput = document.getElementById("nameInput");
   const nameDisplay = document.getElementById("nameDisplay");
+  const errorMessage = document.getElementById("errorMessage");
 
   const name = nameInput.value.trim();
 
-  if (/^[a-zA-Z]+$/.test(name)) {
-    namesArray.push(name);
+  submitText.style.opacity = 0;
+  loader.style.display = "block";
 
-    nameDisplay.textContent = namesArray.join(", ");
-
-    nameInput.value = "";
-
-    localStorage.setItem("submittedName", name);
-
-    submitText.style.opacity = 0;
-    loader.style.display = "block";
-
-    setTimeout(() => {
+  setTimeout(() => {
+    if (!name) {
+      errorMessage.textContent = "This input field is required";
+      errorMessage.style.display = "block";
       submitText.style.opacity = 1;
       loader.style.display = "none";
-      submit();
-    }, 2000);
-  } else {
-    alert("Only letters are allowed.");
-  }
+      return;
+    }
+
+    if (/^[a-zA-Z\s]+$/.test(name)) {
+      errorMessage.style.display = "none";
+      nameDisplay.textContent = name;
+      nameInput.value = "";
+      localStorage.setItem("submittedName", name);
+      submitText.style.opacity = 0;
+      loader.style.display = "block";
+
+      setTimeout(() => {
+        submitText.style.opacity = 1;
+        loader.style.display = "none";
+        submit();
+      }, 2000);
+    } else {
+      errorMessage.textContent = "Only letters are allowed";
+      errorMessage.style.display = "block";
+      submitText.style.opacity = 1;
+      loader.style.display = "none";
+    }
+  }, 1000);
 }
 
 function submit() {

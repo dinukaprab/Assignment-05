@@ -49,8 +49,10 @@
                   class="form-control"
                   id="nameInput"
                   placeholder="Name"
-                  title="Only letters are allowed"
+                  title="Only letters and spaces are allowed"
+                  onkeyup="validateInput()"
                 />
+                <span id="errorMessage" class="error-message">Only letters are allowed.</span>
               </div>
               <div class="submit-btn">
                 <div class="sub-btn" onclick="submitForm(this)">
