@@ -1,29 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const options = document.querySelectorAll(".option");
-  options.forEach((option) => {
-    option.addEventListener("click", function () {
-      options.forEach((opt) => opt.classList.remove("selected"));
-      option.classList.add("selected");
-      option.querySelector("input").checked = true;
-    });
-  });
-});
-
-// function Next(button) {
-//   const submitText = button.querySelector(".next-text");
-//   const loader = button.querySelector(".next-loader");
-
-//   submitText.style.opacity = 0;
-//   loader.style.display = "none";
-
-//   setTimeout(() => {
-//     submitText.style.opacity = 1;
-//     loader.style.display = "block";
-//   }, 1000);
-// };
-
-document.querySelector(".next-btn").addEventListener("click", showNextQuestion);
-
 document.addEventListener("DOMContentLoaded", (event) => {
   const displayName = document.getElementById("displayName");
 
@@ -34,6 +8,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
   } else {
     displayName.textContent = "Guest";
   }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const options = document.querySelectorAll(".option");
+  options.forEach((option) => {
+    option.addEventListener("click", function () {
+      options.forEach((opt) => opt.classList.remove("selected"));
+      option.classList.add("selected");
+      option.querySelector("input").checked = true;
+    });
+  });
 });
 
 const questions = [
@@ -84,8 +69,22 @@ const questions = [
   },
 ];
 
-const TIMER_DURATION = 20;
+function Next() {
+  const nextButton = document.querySelector(".next-btn");
+  const nextText = document.querySelector(".next-text");
+  const nextLoader = document.querySelector(".next-loader");
 
+  nextText.style.opacity = 0;
+  nextLoader.style.display = "block";
+
+  setTimeout(() => {
+    nextText.style.opacity = 1;
+    nextLoader.style.display = "none";
+    nextButton.addEventListener("click", showNextQuestion());
+  }, 1000);
+}
+
+const TIMER_DURATION = 5;
 let currentQuestionIndex = 0;
 let timer;
 
@@ -100,6 +99,41 @@ function startCountdown() {
     if (timeLeft < 0) {
       clearInterval(timer);
       showNextQuestion();
+    }
+  }, 1000);
+}
+
+function showNextQuestion() {
+  const nextText = document.querySelector(".next-text");
+  const nextLoader = document.querySelector(".next-loader");
+  const overlay = document.getElementById("overlay");
+  const loader = document.getElementById("loader");
+
+  nextText.style.opacity = 0;
+  nextLoader.style.display = "block";
+
+  setTimeout(() => {
+    nextText.style.opacity = 1;
+    nextLoader.style.display = "none";
+
+    currentQuestionIndex++;
+    
+    if (currentQuestionIndex < 5 ) {
+      loadQuestion();
+      startCountdown();
+      clearInterval(timer);
+  
+    } else {
+      overlay.style.display = "block";
+      loader.style.display = "block";
+
+      setTimeout(() => {
+        overlay.style.display = "none";
+        loader.style.display = "none";
+        document.getElementById("quizSection").style.display = "none";
+        document.querySelector(".countdown").style.display = "none";
+        document.querySelector(".performance").style.display = "block";
+      }, 1500);
     }
   }, 1000);
 }
@@ -122,35 +156,12 @@ function loadQuestion() {
   });
 
   document
-    .querySelectorAll(".option input")
-    .forEach((input) => (input.checked = false));
-
+  .querySelectorAll(".option input")
+  .forEach((input) => (input.checked = false));
+  // document.querySelector(".option.selected").classList.remove("selected");
+  
+  clearInterval(timer);
   startCountdown();
-}
-
-function showNextQuestion() {
-  const button = document.querySelector(".next-btn");
-  const submitText = button.querySelector(".next-text");
-  const loader = button.querySelector(".next-loader");
-
-  submitText.style.opacity = 0;
-  loader.style.display = "block";
-
-  setTimeout(() => {
-    submitText.style.opacity = 1;
-    loader.style.display = "none";
-
-    currentQuestionIndex++;
-
-    if (currentQuestionIndex < questions.length) {
-      loadQuestion();
-    } else {
-      document.getElementById("quizSection").style.display = "none";
-      document.querySelector(".successfully").style.display = "block";
-    }
-
-    clearInterval(timer);
-  }, 1000);
 }
 
 loadQuestion();

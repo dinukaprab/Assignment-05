@@ -8,8 +8,20 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../loader/style.css">
   </head>
   <body>
+    <div class="overlay" id="overlay">
+      <div class="container" id="loader">
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+        <div class="slice"></div>
+      </div>
+    </div>
+
     <nav class="navbar bg-body-tertiary" id="navbar">
       <div class="container-fluid">
         <img src="../asset/logo.png" alt="" onclick="redirect()" />
@@ -28,25 +40,24 @@
       <div class="card" style="width: 18rem">
         <div class="card-container" id="cardContainer">
           <div class="card-head">
-            <h4 class="question">
-            </h4>
+            <h4 class="question"></h4>
           </div>
-            <div class="card-body">
-              <div class="option">
-                <input type="radio" name="html" id="option1">
-                <label for="option1"></label>
+          <div class="card-body">
+            <div class="option">
+              <input type="radio" name="html" id="option1" />
+              <label for="option1"></label>
             </div>
             <div class="option">
-                <input type="radio" name="html" id="option2">
-                <label for="option2"></label>
+              <input type="radio" name="html" id="option2" />
+              <label for="option2"></label>
             </div>
             <div class="option">
-                <input type="radio" name="html" id="option3">
-                <label for="option3"></label>
+              <input type="radio" name="html" id="option3" />
+              <label for="option3"></label>
             </div>
             <div class="option">
-                <input type="radio" name="html" id="option4">
-                <label for="option4"></label>
+              <input type="radio" name="html" id="option4" />
+              <label for="option4"></label>
             </div>
           </div>
         </div>
@@ -60,15 +71,8 @@
             </div>
           </span>
         </div>
-      </div>      
-    </section>
-
-    <!-- <section class="successfully">
-      <div class="user-plus-icon-group">
-        <div class="user-plus-icon">✔</div>
       </div>
-      <p class="success-text">Quiz Completed Successfully!</p>
-    </section> -->
+    </section>
 
     <div class="performance" style="width: 18rem">
       <div class="per-container" id="perContainer">
@@ -86,10 +90,9 @@
         <span class="try-text">Try Again</span>
       </div>
     </div>
-    
 
     <section class="back-img">
-      <img src="../asset/img_2.png" alt="">
+      <img src="../asset/img_2.png" alt="" />
     </section>
 
     <script src="./script.js"></script>
@@ -97,5 +100,3 @@
     <script src="../bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
-
-
