@@ -22,3 +22,8 @@ document
       button.style.setProperty("--y", `${y}px`);
     });
   });
+
+const currentYear = new Date().getFullYear();
+document.getElementById("footer").innerHTML = `
+  &copy; ${currentYear} Quiz.App <br/> Developed by <a href="https://github.com/dinukaprab" target="_blank">Dinuka Prabath.</a>
+  `;
