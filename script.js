@@ -7,7 +7,7 @@ if (window.location.href.endsWith("/index.html")) {
 }
 
 function redirect() {
-  window.location.href = "/index.html";
+  window.location.href = "./index.html";
 }
 
 document

@@ -82,7 +82,7 @@ function submit() {
     successfully.style.display = "block";
 
     setTimeout(() => {
-      window.location.href = "../quiz/index.html";
+      window.location.href = "../../quiz/index.html";
     }, 2000);
   }, 1000);
 }
