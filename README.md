@@ -6,8 +6,12 @@ Click to play: https://dinukaprab-assignment-05.vercel.app/login
 
 ## Screenshots
 
+---
+
 <img src="/asset/ss_1.png"/>
 
 ---
 
 <img src="/asset/ss_1.png"/>
+
+---
