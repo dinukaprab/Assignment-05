@@ -286,7 +286,7 @@ input[type="search"]:focus {
 }
 
 @media only screen and (max-width: 426px) {
-  .back-img img{
+  .back-img img {
     display: none;
   }
   .card {
@@ -296,7 +296,7 @@ input[type="search"]:focus {
   .card-head {
     margin-block-start: 2em;
   }
-  .head-title{
+  .head-title {
     font-size: 25px;
   }
   .form-name {
@@ -308,9 +308,8 @@ input[type="search"]:focus {
   }
 }
 
-
 @media only screen and (min-width: 767px) {
-  .back-img img{
+  .back-img img {
     width: 100%;
     height: auto;
   }
