@@ -69,7 +69,7 @@ const questions = [
   },
 ];
 
-const TIMER_DURATION = 5;
+const TIMER_DURATION = 20;
 let currentQuestionIndex = 0;
 let correctAnswersCount = 0;
 let timer;

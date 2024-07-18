@@ -5,11 +5,13 @@
 }
 
 .back-img img {
-  width: 100%;
+  position: relative;
   height: auto;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  height: 100%;
+  width: 100%;
 }
 
 .navbar {
@@ -292,5 +294,12 @@
     opacity: 1;
     filter: blur(0);
     transform: translateY(0);
+  }
+}
+
+@media only screen and (max-width: 1300px){
+  .back-img img {
+    height: 100vh;
+    width: auto;
   }
 }
