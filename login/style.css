@@ -32,6 +32,7 @@ input[type="search"]:focus {
   overflow-x: hidden;
   display: block;
   height: 8vh;
+  width: 100%;
   background-color: var(--primary-color) !important;
 }
 
@@ -289,7 +290,28 @@ input[type="search"]:focus {
     display: none;
   }
   .card {
+    height: 420px;
     min-width: 100%;
-    max-width: 100%;
+  }
+  .card-head {
+    margin-block-start: 2em;
+  }
+  .head-title{
+    font-size: 25px;
+  }
+  .form-name {
+    width: 85%;
+  }
+  .submit-btn {
+    margin-block-start: 1.5em;
+    margin-block-end: 1.5em;
+  }
+}
+
+
+@media only screen and (min-width: 767px) {
+  .back-img img{
+    width: 100%;
+    height: auto;
   }
 }
