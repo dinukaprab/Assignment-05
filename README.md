@@ -12,6 +12,6 @@ Click to play: https://dinukaprab-assignment-05.vercel.app/login
 
 ---
 
-<img src="/asset/ss_1.png"/>
+<img src="/asset/ss_2.png"/>
 
 ---
